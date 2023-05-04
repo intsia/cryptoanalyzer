@@ -1,4 +1,4 @@
-package com.javarush.cryptanalyzer.platonov;
+package com.javarush.cryptanalyzer.platonov.core.machines;
 
 public interface Encryption
 {

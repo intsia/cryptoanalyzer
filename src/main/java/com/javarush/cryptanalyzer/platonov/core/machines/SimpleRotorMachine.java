@@ -1,34 +1,10 @@
-package com.javarush.cryptanalyzer.platonov;
+package com.javarush.cryptanalyzer.platonov.core.machines;
 
-public abstract class EncryptionRotorMachine implements Encryption
+// Общий класс для всех машинок работающих по принципу простого сдвига
+
+
+public class SimpleRotorMachine extends RotorMachine
 {
-    char[] alphabet;
-    char[][] rotors;
-    int[] keys;
-
-
-    String text;
-
-    protected void setKeys(int key)
-    {
-        keys = new int[]{key};
-    }
-
-    protected void setKeys(String keyword)
-    {
-        keys = Support.generateKeysFromKeyword(keyword, alphabet);
-    }
-
-    protected void setAlphabet(char[] alphabet)
-    {
-        this.alphabet = alphabet;
-    }
-
-    protected void setText(String text)
-    {
-        this.text = text;
-    }
-
     @Override
     public String Encrypt()
     {
@@ -52,5 +28,4 @@ public abstract class EncryptionRotorMachine implements Encryption
         // Просто запустить алгоритм шифрования с отрицательеыми значениями ключей
         return new String();
     }
-
 }
