@@ -1,29 +1,35 @@
 package com.javarush.cryptanalyzer.platonov.core.machines.details;
 
+import java.util.HashMap;
+
 public class Alphabet
 {
-    private char[] alphabet;
+    private HashMap<Integer, Character> alphabetKeyIntegerValueCharacter;
+    private HashMap<Character, Integer> alphabetKeyCharacterValueInteger;
     private int size;
 
+    public void setAlphabet()
+    {
+
+    }
     public int getSize()
     {
         return size;
     }
 
-    public int indexOfChar(char ch)
+    public HashMap<Integer, Character> getAlphabet()
     {
-        for (int i = 0; i < size; i++)
-        {
-            if (alphabet[i] == ch)
-            {
-                return i;
-            }
-        }
-        return -1;
+
     }
 
-    public char charOfIndex(int index)
+    public int getIndexOfChar(char ch)
     {
-        return alphabet[index];
+
     }
+
+    public char getCharOfIndex(int index)
+    {
+
+    }
+
 }
