@@ -5,27 +5,32 @@ import java.util.HashMap;
 
 public class Rotor
 {
-    private HashMap<Integer, Character> symbols;
-    private int size;
-    private char activeSymbol;
+    private final HashMap<Integer, Character> symbols;
+    private final int rotorSize;
+    private int activeSymbol;
 
-    public void setSymbols(Alphabet alphabet)
-    {
-
-    }
     public Rotor(Alphabet alphabet)
     {
-        size = alphabet.getSize();
-        symbols = Arrays.copyOf(alphabet.getAlphabet(), size);
+        rotorSize = alphabet.getSize();
+        symbols = alphabet.getAlphabet();
         setOnPosition(0);
     }
 
-    public char getActiveSymbol()
+    public char getActiveSymbolValue()
+    {
+        return symbols.get(activeSymbol);
+    }
+    public int getActiveSymbolIndex()
     {
         return activeSymbol;
     }
     public void setOnPosition(int shift)
     {
-        activeSymbol = symbols[shift % size];
+        activeSymbol = (shift + rotorSize) % rotorSize;
+    }
+
+    public void setOnStartPosition()
+    {
+        setOnPosition(0);
     }
 }

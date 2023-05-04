@@ -4,32 +4,39 @@ import java.util.HashMap;
 
 public class Alphabet
 {
-    private HashMap<Integer, Character> alphabetKeyIntegerValueCharacter;
-    private HashMap<Character, Integer> alphabetKeyCharacterValueInteger;
-    private int size;
+    private final HashMap<Integer, Character> alphabetKeyIntegerValueCharacter = new HashMap<>();
+    private final HashMap<Character, Integer> alphabetKeyCharacterValueInteger = new HashMap<>();
+    private int alphabetSize;
 
-    public void setAlphabet()
+    public Alphabet(char[] alphabet)
     {
+        alphabetSize = alphabet.length;
 
+        for (int i = 0; i < alphabetSize; i++)
+        {
+            alphabetKeyIntegerValueCharacter.put(i, alphabet[i]);
+            alphabetKeyCharacterValueInteger.put(alphabet[i], i);
+        }
     }
+
     public int getSize()
     {
-        return size;
+        return alphabetSize;
     }
 
     public HashMap<Integer, Character> getAlphabet()
     {
-
+        return alphabetKeyIntegerValueCharacter;
     }
 
     public int getIndexOfChar(char ch)
     {
-
+        return alphabetKeyCharacterValueInteger.get(ch);
     }
 
     public char getCharOfIndex(int index)
     {
-
+        return alphabetKeyIntegerValueCharacter.get(index);
     }
 
 }
