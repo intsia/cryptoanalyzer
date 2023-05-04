@@ -24,20 +24,19 @@ public class Rotors
         setSize(alphabet);
         setRotors(alphabet);
     }
+    public void setOnPosition(int shift)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            rotors[i].setOnPosition(rotors[i].getActiveSymbolIndex() + shift);
+        }
+    }
 
     public void setOnStartPosition()
     {
         for (int i = 0; i < size; i++)
         {
             rotors[i].setOnPosition(i);
-        }
-    }
-
-    public void setOnPosition(int shift)
-    {
-        for (int i = 0; i < size; i++)
-        {
-            rotors[i].setOnPosition();
         }
     }
 }

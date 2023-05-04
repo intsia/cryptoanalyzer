@@ -25,6 +25,20 @@ public class Key
         this.keyword = keyword;
     }
 
+    public int[] getKeys()
+    {
+        return keys;
+    }
+
+    public int getKey()
+    {
+        return key;
+    }
+
+    public String getKeyword()
+    {
+        return keyword;
+    }
     public void generateKeysFromKeyword(Alphabet alphabet)
     {
         int size = alphabet.getSize();
@@ -32,7 +46,7 @@ public class Key
         keys = new int[size];
         for (int i = 0; i < size; i++)
         {
-            keys[i] = alphabet.charOfIndex(i);
+            keys[i] = alphabet.getCharOfIndex(i);
         }
     }
 
