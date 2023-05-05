@@ -5,7 +5,7 @@ public class Rotors
     private Rotor[] rotors;
     private int size;
 
-    private void setRotors(Alphabet alphabet)
+    private void setRotors(Cryptoalphabet alphabet)
     {
         rotors = new Rotor[alphabet.getSize()];
         for (int i = 0; i < alphabet.getSize(); i++)
@@ -14,12 +14,12 @@ public class Rotors
         }
     }
 
-    private void setSize(Alphabet alphabet)
+    private void setSize(Cryptoalphabet alphabet)
     {
         size = alphabet.getSize();
     }
 
-    public Rotors(Alphabet alphabet)
+    public Rotors(Cryptoalphabet alphabet)
     {
         setSize(alphabet);
         setRotors(alphabet);

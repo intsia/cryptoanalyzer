@@ -8,7 +8,7 @@ public class Rotor
     private final int rotorSize;
     private int activeSymbol;
 
-    public Rotor(Alphabet alphabet)
+    public Rotor(Cryptoalphabet alphabet)
     {
         rotorSize = alphabet.getSize();
         symbols = alphabet.getAlphabet();

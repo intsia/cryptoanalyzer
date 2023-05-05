@@ -1,6 +1,6 @@
 package com.javarush.cryptanalyzer.platonov.main;
 
-import com.javarush.cryptanalyzer.platonov.app.ConsoleApp;
+import com.javarush.cryptanalyzer.platonov.applicationUI.ConsoleApp;
 
 public class Main
 {

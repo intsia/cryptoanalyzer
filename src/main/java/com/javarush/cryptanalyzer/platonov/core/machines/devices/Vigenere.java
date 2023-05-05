@@ -2,12 +2,12 @@ package com.javarush.cryptanalyzer.platonov.core.machines.devices;
 
 
 import com.javarush.cryptanalyzer.platonov.core.machines.RotorMachine;
-import com.javarush.cryptanalyzer.platonov.core.machines.details.Alphabet;
+import com.javarush.cryptanalyzer.platonov.core.machines.details.Cryptoalphabet;
 import com.javarush.cryptanalyzer.platonov.core.machines.details.Key;
 
 public class Vigenere extends RotorMachine
 {
-    public Vigenere(Alphabet alphabet, Key key, String text)
+    public Vigenere(Cryptoalphabet alphabet, Key key, String text)
     {
         super(alphabet, key, text);
     }

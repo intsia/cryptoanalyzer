@@ -1,7 +1,5 @@
 package com.javarush.cryptanalyzer.platonov.core.machines.details;
 
-import com.javarush.cryptanalyzer.platonov.core.machines.details.Alphabet;
-
 import java.util.Arrays;
 
 public class Key
@@ -78,7 +76,7 @@ public class Key
     {
         return keyword;
     }
-    public void generateKeysFromKeyword(Alphabet alphabet)
+    public void generateKeysFromKeyword(Cryptoalphabet alphabet)
     {
         int size = alphabet.getSize();
         char[] keywordCharArray = keyword.toCharArray();

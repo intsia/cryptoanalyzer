@@ -2,13 +2,13 @@ package com.javarush.cryptanalyzer.platonov.core.machines.details;
 
 import java.util.HashMap;
 
-public class Alphabet
+public class Cryptoalphabet
 {
     private final HashMap<Integer, Character> alphabetKeyIntegerValueCharacter = new HashMap<>();
     private final HashMap<Character, Integer> alphabetKeyCharacterValueInteger = new HashMap<>();
-    private int alphabetSize;
+    private final int alphabetSize;
 
-    public Alphabet(char[] alphabet)
+    public Cryptoalphabet(char[] alphabet)
     {
         alphabetSize = alphabet.length;
 
@@ -19,14 +19,13 @@ public class Alphabet
         }
     }
 
-    public int getSize()
-    {
-        return alphabetSize;
-    }
-
     public HashMap<Integer, Character> getAlphabet()
     {
         return alphabetKeyIntegerValueCharacter;
+    }
+    public int getSize()
+    {
+        return alphabetSize;
     }
 
     public int getIndexOfChar(char ch)
