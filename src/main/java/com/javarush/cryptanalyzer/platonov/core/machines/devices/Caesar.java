@@ -15,14 +15,7 @@ public class Caesar extends RotorMachine
 
     private String encryptionAlgorithm(boolean mode)
     {
-        if (mode)
-        {
-            rotors.setOnPosition(key.getKey());
-        }
-        else
-        {
-            rotors.setOnPosition(key.getKey() * -1);
-        }
+        rotors.setOnPosition(key.getKey(mode));
         char[] buffer = text.toCharArray();
         for (int i = 0; i < buffer.length; i++)
         {
