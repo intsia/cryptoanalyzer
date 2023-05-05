@@ -1,14 +1,9 @@
 package com.javarush.cryptanalyzer.platonov.core.machines.devices;
 
-import com.javarush.cryptanalyzer.platonov.core.machines.SimpleRotorMachine;
 
-public class Vigenere extends SimpleRotorMachine
+import com.javarush.cryptanalyzer.platonov.core.machines.RotorMachine;
+
+public class Vigenere
 {
-    public Vigenere(String text, String key, char[] alphabet)
-    {
-        setAlphabet(alphabet);
-        setKeys(key);
-        setText(text);
-    }
 
 }

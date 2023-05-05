@@ -26,9 +26,10 @@ public class Rotors
     }
     public void setOnPosition(int shift)
     {
+        setOnStartPosition();
         for (int i = 0; i < size; i++)
         {
-            rotors[i].setOnPosition(rotors[i].getActiveSymbolIndex() + shift);
+            rotors[i].setOnPosition((rotors[i].getActiveSymbolIndex() + shift) % size);
         }
     }
 
@@ -38,5 +39,19 @@ public class Rotors
         {
             rotors[i].setOnPosition(i);
         }
+    }
+
+    public char getActiveValueFromIndex(int index)
+    {
+        return rotors[index].getActiveSymbolValue();
+    }
+
+    public void printActiveLineValue()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            System.out.print(getActiveValueFromIndex(i));
+        }
+        System.out.println();
     }
 }

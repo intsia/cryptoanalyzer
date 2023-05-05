@@ -13,16 +13,37 @@ public class Caesar extends RotorMachine
         super(alphabet, key, text);                                        // TODO почитать что значит эта фигня, спасибо IDE за помощь конечно, но я нихрена не понял
     }
 
+    private String encryptionAlgorithm(boolean mode)
+    {
+        if (mode)
+        {
+            rotors.setOnPosition(key.getKey());
+        }
+        else
+        {
+            rotors.setOnPosition(key.getKey() * -1);
+        }
+        char[] buffer = text.toCharArray();
+        for (int i = 0; i < buffer.length; i++)
+        {
+            buffer[i] = rotors.getActiveValueFromIndex(alphabet.getIndexOfChar(buffer[i]));
+        }
+        String result = new String(buffer);
+        return result;
+    }
     @Override
     public String Encrypt()
     {
-        key.generateKeysFromKeyword();
-        rotors.setOnPosition(key.);
+        return encryptionAlgorithm(true);
     }
 
     @Override
     public String Decrypt()
     {
-        return null;
+        return encryptionAlgorithm(false);
+    }
+    public String getText()
+    {
+        return text;
     }
 }

@@ -1,6 +1,5 @@
 package com.javarush.cryptanalyzer.platonov.core.machines.details;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Rotor
