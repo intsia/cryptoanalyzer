@@ -2,11 +2,12 @@ package com.javarush.cryptanalyzer.platonov.core.domain.details;
 
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionAlphabet;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Rotor
 {
-    private final HashMap<Integer, Character> symbols;
+    private final ArrayList<Character> symbols;
     private final int rotorSize;
     private int activeSymbol;
 
@@ -30,8 +31,4 @@ public class Rotor
         activeSymbol = (shift + rotorSize) % rotorSize;
     }
 
-    public void setOnStartPosition()
-    {
-        setOnPosition(0);
-    }
 }

@@ -5,12 +5,14 @@ import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionAlpha
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionKey;
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionText;
 
+import java.util.Locale;
+
 public class Caesar extends RotorMachine
 {
 
-    public Caesar(EncryptionAlphabet alphabet, EncryptionKey key, EncryptionText text)
+    public Caesar(EncryptionAlphabet alphabet, EncryptionKey key, EncryptionText text, Locale locale)
     {
-        super(alphabet, key, text);
+        super(alphabet, key, text, locale);
     }
 
     private String encryptionAlgorithm(boolean mode)
@@ -34,22 +36,5 @@ public class Caesar extends RotorMachine
     public String Decrypt()
     {
         return encryptionAlgorithm(false);
-    }
-
-    @Override
-    public String EncryptWithComments()
-    {
-        return null;
-    }
-
-    @Override
-    public String DecryptWithComments()
-    {
-        return null;
-    }
-
-    public String getText()
-    {
-        return text.getText();
     }
 }

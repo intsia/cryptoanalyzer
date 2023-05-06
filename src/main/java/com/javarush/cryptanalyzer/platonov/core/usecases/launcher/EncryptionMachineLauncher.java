@@ -1,8 +1,8 @@
-package com.javarush.cryptanalyzer.platonov.core.usecases.result;
+package com.javarush.cryptanalyzer.platonov.core.usecases.launcher;
 
 import com.javarush.cryptanalyzer.platonov.core.domain.devices.interfaces.IEncryptionMachine;
 
-public class ResultGet
+public class EncryptionMachineLauncher
 {
     public String Encrypt(IEncryptionMachine encryptionMachine)
     {

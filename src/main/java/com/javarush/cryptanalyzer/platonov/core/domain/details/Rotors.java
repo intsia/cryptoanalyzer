@@ -1,11 +1,17 @@
 package com.javarush.cryptanalyzer.platonov.core.domain.details;
 
+import com.javarush.cryptanalyzer.platonov.core.domain.alphabetbuilder.constans.AlphabetsCollection;
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionAlphabet;
+
+import java.util.ArrayList;
 
 public class Rotors
 {
     private Rotor[] rotors;
     private int size;
+
+    ArrayList<Character> activeLineValues = new ArrayList<>();
+    ArrayList<Integer> activeLineIndexes = new ArrayList<>();
 
     private void setRotors(EncryptionAlphabet alphabet)
     {
@@ -13,6 +19,8 @@ public class Rotors
         for (int i = 0; i < alphabet.getSize(); i++)
         {
             rotors[i] = new Rotor(alphabet);
+            activeLineValues.add(rotors[i].getActiveSymbolValue());
+            activeLineIndexes.add(i);
         }
     }
 
@@ -32,6 +40,8 @@ public class Rotors
         for (int i = 0; i < size; i++)
         {
             rotors[i].setOnPosition((rotors[i].getActiveSymbolIndex() + shift) % size);
+            activeLineIndexes.set(i, rotors[i].getActiveSymbolIndex());
+            activeLineValues.set(i, rotors[i].getActiveSymbolValue());
         }
     }
 
@@ -43,17 +53,16 @@ public class Rotors
         }
     }
 
-    public char getActiveValueFromIndex(int index)
+    public char getActiveValueFromIndex(int index)//TODO чет странная фигня мне не нравится
     {
         return rotors[index].getActiveSymbolValue();
     }
 
     public void printActiveLineValue()
     {
-        for (int i = 0; i < size; i++)
-        {
-            System.out.print(getActiveValueFromIndex(i));
-        }
-        System.out.println();
+        AlphabetsCollection.printSeparateLine(size);
+        AlphabetsCollection.printIndexIntLine(activeLineIndexes);
+        AlphabetsCollection.printValueLine(activeLineValues);
+        AlphabetsCollection.printSeparateLine(size);
     }
 }

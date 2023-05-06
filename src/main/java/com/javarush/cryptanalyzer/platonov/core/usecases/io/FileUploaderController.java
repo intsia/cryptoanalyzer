@@ -1,5 +1,6 @@
-package com.javarush.cryptanalyzer.platonov.core.usecases.input;
+package com.javarush.cryptanalyzer.platonov.core.usecases.io;
 
+import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionKey;
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionText;
 
 import java.io.FileNotFoundException;
@@ -9,20 +10,13 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 
-public class TextFileUploader //TODO тут по хорошему добавить какой-то обработчик строк, чтобы не заморачиваться с двойными // и другими ошибками. Как-то поудобнее сварганить. Но пока работает.
+/*
+TODO тут по хорошему добавить какой-то обработчик строк, чтобы не заморачиваться с двойными // и другими ошибками. Как-то поудобнее сварганить. Но пока работает.
+TODO еще можно просто создавать папочку на условном рабочем столе и предлагать положить файлик прямо туда и не париться
+*/
+public class FileUploaderController
 {
-    Path path;
-    String pathInString;
-
-
-    public TextFileUploader(String path)
-    {
-        pathInString = path;
-        this.path = Path.of(pathInString);
-        this.path.toAbsolutePath();
-    }
-
-    public EncryptionText uploadTextFile()
+    private static String upload(Path path)
     {
         try
                 (
@@ -38,7 +32,7 @@ public class TextFileUploader //TODO тут по хорошему добавит
             {
                 builder.append((char) byteBuffer.get());
             }
-            return new EncryptionText(builder.toString());
+            return builder.toString();
         } catch (FileNotFoundException e)
         {
             e.printStackTrace();
@@ -47,5 +41,17 @@ public class TextFileUploader //TODO тут по хорошему добавит
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    public static EncryptionText uploadTextFile(Path path)
+    {
+        return new EncryptionText(upload(path));
+    }
+
+
+    public static EncryptionKey uploadKeyFile(Path path)
+    {
+        return new EncryptionKey(upload(path));
     }
 }
