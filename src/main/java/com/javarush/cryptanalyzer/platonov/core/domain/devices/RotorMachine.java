@@ -11,7 +11,7 @@ public abstract class RotorMachine implements IEncryptionMachine
     protected EncryptionKey key;
     protected EncryptionAlphabet alphabet;
     protected Rotors rotors;
-    protected EncryptionText text; //TODO пока что так, как доберусь до потоков ввода данных может есть смысл зашить в класс со своими методами
+    protected EncryptionText text;
 
     public RotorMachine(EncryptionAlphabet alphabet, EncryptionKey key, EncryptionText text)
     {

@@ -13,7 +13,7 @@ public interface IApplication
     public EncryptionKey setEncryptionKey();
     public EncryptionText setEncryptionText();
     public EncryptionAlphabet createEncryptionAlphabet();
-    public EncryptionText uploadEncryptionText();
+    public EncryptionText uploadEncryptionText(String path);
     public String Encryption();
     public String Decryption();
     public void saveResult();

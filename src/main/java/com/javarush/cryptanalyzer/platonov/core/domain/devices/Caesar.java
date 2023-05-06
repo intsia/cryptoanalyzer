@@ -10,7 +10,7 @@ public class Caesar extends RotorMachine
 
     public Caesar(EncryptionAlphabet alphabet, EncryptionKey key, EncryptionText text)
     {
-        super(alphabet, key, text);                                        // TODO почитать что значит эта фигня, спасибо IDE за помощь конечно, но я нихрена не понял
+        super(alphabet, key, text);
     }
 
     private String encryptionAlgorithm(boolean mode)

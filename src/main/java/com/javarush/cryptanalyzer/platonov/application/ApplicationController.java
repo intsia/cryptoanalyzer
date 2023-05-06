@@ -1,13 +1,13 @@
 package com.javarush.cryptanalyzer.platonov.application;
 
 import com.javarush.cryptanalyzer.platonov.core.constants.EncryptionMachineTypes;
-import com.javarush.cryptanalyzer.platonov.core.domain.devices.Caesar;
-import com.javarush.cryptanalyzer.platonov.core.domain.devices.Vigenere;
 import com.javarush.cryptanalyzer.platonov.core.domain.devices.interfaces.IEncryptionMachine;
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionAlphabet;
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionKey;
 import com.javarush.cryptanalyzer.platonov.core.domain.variables.EncryptionText;
 import com.javarush.cryptanalyzer.platonov.core.usecases.input.CreateCustomEncryptionAlphabet;
+import com.javarush.cryptanalyzer.platonov.core.usecases.input.EncryptionMachineCreator;
+import com.javarush.cryptanalyzer.platonov.core.usecases.input.TextFileUploader;
 import com.javarush.cryptanalyzer.platonov.core.usecases.result.ResultGet;
 
 public class ApplicationController implements IApplication
@@ -23,21 +23,8 @@ public class ApplicationController implements IApplication
     @Override
     public IEncryptionMachine createEncryptionMachine(EncryptionMachineTypes type)
     {
-        switch (type)
-        {
-            case caesar ->
-            {
-                return new Caesar(encryptionAlphabet, encryptionKey, encryptionText);
-            }
-            case vigenere ->
-            {
-                return new Vigenere(encryptionAlphabet, encryptionKey, encryptionText);
-            }
-            default ->
-            {
-                return null;
-            }
-        }
+        EncryptionMachineCreator creator = new EncryptionMachineCreator(encryptionAlphabet, encryptionKey, encryptionText);
+        return creator.createEncryptionMachine(type);
     }
 
     @Override
@@ -66,9 +53,10 @@ public class ApplicationController implements IApplication
     }
 
     @Override
-    public EncryptionText uploadEncryptionText()
+    public EncryptionText uploadEncryptionText(String path)
     {
-        return null;
+        TextFileUploader uploader = new TextFileUploader(path);
+        return uploader.uploadTextFile();
     }
 
     @Override
