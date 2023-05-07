@@ -18,7 +18,7 @@ import java.util.Locale;
 
 public class ApplicationController implements IApplication
 {
-    private Locale language = new Locale("en" ,"US");
+    private Locale language = new Locale("ru" ,"RU");
     private IEncryptionMachine encryptionMachine;
     private EncryptionAlphabet encryptionAlphabet = new EncryptionAlphabet(AlphabetsCollection.alphabetEnUpperCase);
     private EncryptionKey encryptionKey; //TODO подумать про дефолтные значения
@@ -69,13 +69,6 @@ public class ApplicationController implements IApplication
     public void uploadEncryptionText(String path)
     {
         encryptionText = uploader.uploadTextFile(path);
-    }
-
-    @Override
-    public EncryptionAlphabet createEncryptionAlphabet(EncryptionMachineTypes vigenere) //TODO
-    {
-        CustomEncryptionAlphabetCreator createCustomEncryptionAlphabet = new CustomEncryptionAlphabetCreator();
-        return createCustomEncryptionAlphabet.createCustomEncryptionAlphabet();
     }
 
     @Override

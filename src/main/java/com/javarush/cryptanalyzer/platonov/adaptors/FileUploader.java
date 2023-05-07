@@ -16,7 +16,6 @@ public class FileUploader implements ITextFileUploader
     }
 
     @Override
-
     public EncryptionKey uploadKeyFile(String path)
     {
         return FileUploaderController.uploadKeyFile(Path.of(path));

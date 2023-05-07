@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 public class Vigenere extends RotorMachine
 {
-    private ResourceBundle comments = ResourceBundle.getBundle("comments", locale);
+    private ResourceBundle comments = ResourceBundle.getBundle("test", locale);
     public Vigenere(EncryptionAlphabet alphabet, EncryptionKey key, EncryptionText text, Locale locale)
     {
         super(alphabet, key, text, locale);

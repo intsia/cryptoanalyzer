@@ -16,7 +16,6 @@ public interface IApplication
     public void uploadEncryptionKey(String path);
     public void setEncryptionText(String text);
     public void uploadEncryptionText(String path);
-    public EncryptionAlphabet createEncryptionAlphabet(EncryptionMachineTypes vigenere);
     public String Encryption();
     public String Decryption();
 }
